@@ -1,0 +1,23 @@
+# assembly
+extern printf
+
+section .data
+	in: db "%d",10,0
+
+section .text
+	global main
+	main:
+	push ebp
+	mov ebp, esp
+	mov ebx,0
+
+	func:
+	inc ebx
+	push ebx
+	push in
+	call printf
+	cmp ebx, 10
+	jne func
+
+	leave 
+	ret
