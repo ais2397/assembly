@@ -4,11 +4,14 @@ extern scanf
 section .data
 	integer: dd 2 ,10,0
 	in: dd "%d" ,10,0
+	in1:dd "%d" ,0
 	factor: dd 1 ,0
 	char1: db "" ,10,0
 	str: db "%s" ,10,0
 	msg: db "Table of " 
 	char: db "" ,0
+	x: db "X" ,0
+	sign: db "=" ,0
 	
 section .text
 	global main
@@ -44,6 +47,20 @@ section .text
 	imul ebx,edx ;multiplication
 
 	print:
+
+	push dword [integer]
+	push in1
+	call printf
+
+	push x
+	call printf
+
+	push dword [factor]
+	push in1
+	call printf
+
+	push sign
+	call printf
 
 	push ebx
 	push in
