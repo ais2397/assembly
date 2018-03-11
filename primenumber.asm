@@ -31,11 +31,11 @@ section .text
 	mov ebx, ecx
 	div ebx
 
-	cmp ebx,[N]
+	cmp ebx,[N]	;if dividend is equal to divisor exit the loop
 	je print2
 
-	cmp edx, 0
-	jne check
+	cmp edx, 0	;if rem=0 then not a prime no.
+	jne check	;if rem!=0 ->loop
 	jmp print3
 
 
